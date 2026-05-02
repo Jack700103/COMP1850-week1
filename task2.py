@@ -1,13 +1,16 @@
 def main():
     try:
-        monthly_savings = input()
+        monthly_input = input().strip()
 
-        monthly_savings = int(monthly_savings)
+        if monthly_input == "":
+            raise ValueError
+
+        monthly_savings = int(monthly_input)
 
         annual_savings = monthly_savings * 12
-        total_amount = annual_savings * 1.008  
+        total_amount = annual_savings * 1.008  # 0.8% interest
 
-        print(f"{annual_savings}")
+        print(annual_savings)
         print(f"£{total_amount:.2f}")
         
     except ValueError:
