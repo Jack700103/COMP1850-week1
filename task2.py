@@ -1,25 +1,19 @@
-import sys
+try:
+    user_input = input()
 
-def main():
-    try:
-        line = sys.stdin.readline()
+    clean_input = user_input.strip()
 
-        monthly_input = line.strip()
+    if not clean_input:
+        raise ValueError
 
-        if not monthly_input:
-            raise ValueError
+    monthly_savings = int(clean_input)
 
-        monthly_savings = int(monthly_input)
+    annual_savings = monthly_savings * 12
+    total_amount = annual_savings * 1.008  
 
-        annual_savings = monthly_savings * 12
-        
-        total_amount = annual_savings * 1.008
+    print(annual_savings)
 
-        print(annual_savings)
+    print(f"£{total_amount:.2f}")
 
-        print(f"£{total_amount:.2f}")
-        
-    except ValueError:
-        print("Invalid amount")
-
-main()
+except ValueError:
+    print("Invalid amount")
