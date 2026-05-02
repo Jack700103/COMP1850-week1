@@ -1,22 +1,17 @@
-import sys
-
-def calculate_savings():
-    input_data = sys.stdin.read().strip()
-
-    if not input_data or not input_data.replace('-', '').isdigit():
-        print("Invalid amount")
-        return
-    
+def main():
     try:
-        monthly = int(input_data)
+        monthly_savings = input("Enter the amount you want to save each month: ")
+
+        monthly_savings = int(monthly_savings)
+
+        annual_savings = monthly_savings * 12
+        total_amount = annual_savings * 1.008  # 0.8% interest means multiply by 1.008
+
+        print(f"You will save {annual_savings} per year.")
+        print(f"You will have {total_amount:.2f} in total after 1 year including interest.")
+        
     except ValueError:
         print("Invalid amount")
-        return
 
-    annual = monthly * 12
-    total = annual * 1.008
-
-    print(f"Annual savings: £{annual}")
-    print(f"Total with interest: £{total:.2f}")
-
-calculate_savings()
+if __name__ == "__main__":
+    main()
