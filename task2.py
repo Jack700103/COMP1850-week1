@@ -8,7 +8,7 @@ def main():
         monthly_savings = int(monthly_input)
 
         annual_savings = monthly_savings * 12
-        total_amount = annual_savings * 1.008  # 0.8% interest
+        total_amount = annual_savings * 1.008  
 
         print(annual_savings)
         print(f"£{total_amount:.2f}")
