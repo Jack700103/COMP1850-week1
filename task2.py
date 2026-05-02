@@ -1,19 +1,17 @@
-try:
-    user_input = input()
+def main():
+    user_input = input().strip()
+    try:
+        monthly = int(user_input)
+    except ValueError:
+        print("Invalid amount")
+        return
 
-    clean_input = user_input.strip()
-
-    if not clean_input:
-        raise ValueError
-
-    monthly_savings = int(clean_input)
-
-    annual_savings = monthly_savings * 12
-    total_amount = annual_savings * 1.008  
+    annual_savings = monthly * 12
+    interest = annual_savings * 0.008
+    total = annual_savings + interest
 
     print(annual_savings)
+    print(total)
 
-    print(f"£{total_amount:.2f}")
-
-except ValueError:
-    print("Invalid amount")
+if __name__ == "__main__":
+    main()
